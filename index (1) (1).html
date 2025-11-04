@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego Hormazábal - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            line-height: 1.6;
+            color: #d4d4d4;
+            background-color: #1e1e1e;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #252526;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        header {
+            background-color: #1e1e1e;
+            color: #d7ba7d;
+            padding: 30px 40px;
+            border-bottom: 2px solid #007acc;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            font-weight: 400;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            color: #4ec9b0;
+        }
+
+        .subtitle {
+            font-size: 0.95em;
+            opacity: 0.8;
+            font-weight: 300;
+            color: #ce9178;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover h2 {
+            color: #4fc1ff;
+            transform: translateX(5px);
+        }
+
+        h2 {
+            font-size: 1.4em;
+            color: #569cd6;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #3e3e42;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        h2::before {
+            content: '// ';
+            color: #608b4e;
+        }
+
+        .about {
+            background-color: #2d2d30;
+            padding: 25px;
+            border-left: 3px solid #007acc;
+            margin-bottom: 40px;
+            font-size: 0.95em;
+            line-height: 1.8;
+            color: #cccccc;
+            transition: all 0.3s ease;
+        }
+
+        .about:hover {
+            background-color: #323233;
+            border-left-color: #4fc1ff;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 122, 204, 0.2);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            background-color: #2d2d30;
+            padding: 20px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info:hover {
+            background-color: #323233;
+            box-shadow: 0 4px 12px rgba(0, 122, 204, 0.2);
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #c586c0;
+            margin-bottom: 5px;
+        }
+
+        .contact-label::before {
+            content: '> ';
+            color: #4ec9b0;
+        }
+
+        .contact-value {
+            color: #d4d4d4;
+            padding-left: 15px;
+        }
+
+        .contact-value a {
+            color: #4fc1ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+            color: #6dd0ff;
+            text-shadow: 0 0 8px rgba(79, 193, 255, 0.5);
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 2px solid #3e3e42;
+            background-color: #2d2d30;
+            padding: 15px 15px 15px 20px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .experience-item:hover {
+            background-color: #323233;
+            border-left-color: #4fc1ff;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 122, 204, 0.2);
+        }
+
+        .experience-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #dcdcaa;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: #4ec9b0;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .experience-date {
+            color: #808080;
+            font-size: 0.9em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-item {
+            background-color: #2d2d30;
+            padding: 12px 18px;
+            border-radius: 4px;
+            border-left: 3px solid #007acc;
+            color: #d4d4d4;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-item:hover {
+            background-color: #323233;
+            border-left-color: #4fc1ff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 122, 204, 0.3);
+        }
+
+        .skill-item::before {
+            content: '• ';
+            color: #4ec9b0;
+        }
+
+        .soft-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .soft-skill-tag {
+            background-color: #0e639c;
+            color: #d4d4d4;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            border: 1px solid #007acc;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .soft-skill-tag:hover {
+            background-color: #1177bb;
+            border-color: #4fc1ff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 122, 204, 0.4);
+        }
+
+        .languages {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .language-item {
+            background-color: #2d2d30;
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 3px solid #007acc;
+            transition: all 0.3s ease;
+        }
+
+        .language-item:hover {
+            background-color: #323233;
+            border-left-color: #4fc1ff;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 122, 204, 0.2);
+        }
+
+        .language-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #dcdcaa;
+            font-size: 1.05em;
+        }
+
+        .language-level {
+            color: #4ec9b0;
+            font-size: 0.9em;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #1e1e1e;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007acc 0%, #4fc1ff 100%);
+            border-radius: 4px;
+            transition: width 1s ease;
+            box-shadow: 0 0 10px rgba(79, 193, 255, 0.5);
+        }
+
+        .language-item:hover .progress-fill {
+            box-shadow: 0 0 15px rgba(79, 193, 255, 0.8);
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            color: #808080;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85em;
+            border-top: 2px solid #007acc;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 25px 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .about {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Diego Hormazábal</h1>
+            <p class="subtitle">Técnico en Informática</p>
+        </header>
+
+        <div class="content">
+            <div class="about">
+                Soy una persona perseverante y orientada a la mejora constante. Mientras estudio Técnico en Informática en IPP, trabajo en el área de logística aeroportuaria, donde aprendí a cumplir metas bajo presión y coordinarme eficazmente con distintos equipos. Esa misma disciplina la aplico en mis proyectos tecnológicos, donde, gracias a los cursos realizados, he podido configurar servidores de Minecraft utilizando Oracle y otras herramientas, buscando siempre que cada tarea funcione correctamente y aporte valor real.
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-label">Teléfono</div>
+                    <div class="contact-value"><a href="tel:+56949332274">+569 49332274</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Correo electrónico</div>
+                    <div class="contact-value"><a href="mailto:hormazabal.g.diego@gmail.com">hormazabal.g.diego@gmail.com</a></div>
+                </div>
+            </div>
+
+            <section class="section">
+                <h2>Educación</h2>
+                <div class="experience-item">
+                    <div class="experience-title">Técnico en Informática</div>
+                    <div class="experience-company">Instituto Profesional Providencia (IPP)</div>
+                    <div class="experience-date">2023 - 2025</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Idiomas</h2>
+                <div class="languages">
+                    <div class="language-item">
+                        <div class="language-header">
+                            <span class="language-name">Español</span>
+                            <span class="language-level">Nativo</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-header">
+                            <span class="language-name">Inglés</span>
+                            <span class="language-level">Avanzado</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Habilidades Técnicas</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">Programación en HTML, CSS, JavaScript y PHP</div>
+                    <div class="skill-item">Gestión de bases de datos</div>
+                    <div class="skill-item">Análisis y diseño de sistemas</div>
+                    <div class="skill-item">Administración de redes LAN/Wi-Fi</div>
+                    <div class="skill-item">Sistemas operativos Windows y Linux</div>
+                    <div class="skill-item">Mantenimiento y ensamblaje de equipos</div>
+                    <div class="skill-item">Seguridad informática y ciberseguridad</div>
+                    <div class="skill-item">NetBeans, Cisco Packet Tracer, pgAdmin, VS Code</div>
+                    <div class="skill-item">Control de versiones (Git/GitHub)</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Competencias Blandas</h2>
+                <div class="soft-skills">
+                    <span class="soft-skill-tag">Trabajo en equipo</span>
+                    <span class="soft-skill-tag">Comunicación efectiva</span>
+                    <span class="soft-skill-tag">Adaptabilidad</span>
+                    <span class="soft-skill-tag">Aprendizaje continuo</span>
+                    <span class="soft-skill-tag">Responsabilidad</span>
+                    <span class="soft-skill-tag">Resolución de problemas</span>
+                    <span class="soft-skill-tag">Orientación a resultados</span>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Experiencia Laboral</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-title">TOA Aeroportuario</div>
+                    <div class="experience-company">ACCIONA</div>
+                    <div class="experience-date">2023 - 2025</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-title">Vendedor</div>
+                    <div class="experience-company">Ripley</div>
+                    <div class="experience-date">2019 - 2020</div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Diego Hormazábal. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
